@@ -3,12 +3,96 @@
     padding: 0;
 }
 
+.container {
+    padding: 1rem 1.5rem;
+    
+}
+
 .title {
     text-align: center;
     font-size: 1.75rem;
+    margin-bottom: 2rem;
+   
 }
 
-.card {
+.card__wrapper {
     display: flex;
-    justify-content: space-around;
+    flex-direction: row;
+    justify-content: space-evenly;
+    
+}
+.card {
+    position: relative;
+    /* margin-right: 0; */
+    border: 1px solid black;
+    background-color: lightgrey;
+    margin-right: 1rem;
+}
+.card.sushi {
+    margin-right: 0;
+}
+
+.subtitle {
+    position: absolute;
+    border: 1px solid black;
+    right: 0;
+    font-weight: bold;
+    padding: 0.3rem 1rem; 
+    width: 70px;
+    height: 17px;
+    text-align: center;
+
+}
+
+.chicken .subtitle {
+    background-color: red;
+}
+.beef .subtitle {
+    background-color: yellow;
+    
+}.sushi .subtitle {
+    background-color: pink;
+}
+p {
+    padding: 2.5rem 1rem 0 1rem;
+}
+
+@media screen and (max-width:991px) {
+    .card__wrapper {
+        display: grid; 
+        grid-template-areas: "chicken beef"
+                             "sushi sushi";
+        width: 100%;
+        padding-right: 0;
+    }
+    
+    .card.chicken {
+        grid-area: chicken;
+       
+    }
+    .card.sushi {
+        margin-top: 1rem;
+        grid-area: sushi;
+        
+    }
+
+    .card.beef {
+        grid-area: beef;
+        margin-right: 0;
+    }
+    
+}
+
+@media screen and (max-width: 767px) {
+    .card__wrapper {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .card.beef {
+        margin-top: 1rem;
+    }
+    .card.chicken {
+        margin-right: 0;
+    }
 }
